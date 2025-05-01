@@ -17,45 +17,23 @@ export default function ContactPage() {
         <CardContent className="pt-6">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h2 className="text-2xl font-semibold mb-4">Principal Investigator</h2>
+              <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
+              <p className="text-neutral-600 mb-4">
+                For questions about plant miRNA and lncRNA interaction tool, please reach out:
+              </p>
               <div className="space-y-2">
-                <h3 className="text-lg font-medium">Muskan</h3>
-                <p className="text-neutral-600">
-                  <strong>Email:</strong>{" "}
-                  <a href="mailto:muskan.ansari286660@gmail.com" className="text-[#2c6e49] hover:underline">
-                    muskan.ansari286660@gmail.com
-                  </a>
-                </p>
-                <p className="text-neutral-600">
-                  <strong>Phone:</strong>{" "}
-                  <a href="tel:7084468373" className="text-[#2c6e49] hover:underline">
-                    7084468373
-                  </a>
-                </p>
+                <p><strong>Email:</strong> contact@plantmirna.example.org</p>
+                <p><strong>Location:</strong> Research Institute</p>
               </div>
             </div>
             <div>
               <h2 className="text-2xl font-semibold mb-4">Research Team</h2>
+              <p className="text-neutral-600 mb-4">
+                For academic collaborations and research inquiries:
+              </p>
               <div className="space-y-2">
-                <h3 className="text-lg font-medium">Noopur Singh</h3>
-                <p className="text-neutral-600">
-                  <strong>Email:</strong>{" "}
-                  <a href="mailto:noopur@example.com" className="text-[#2c6e49] hover:underline">
-                    noopur@example.com
-                  </a>
-                </p>
-                <p className="text-neutral-600">
-                  <strong>Phone:</strong>{" "}
-                  <a href="tel:+919651770378" className="text-[#2c6e49] hover:underline">
-                    +919651770378
-                  </a>
-                </p>
-                <p className="text-neutral-600">
-                  <strong>Alternate Phone:</strong>{" "}
-                  <a href="tel:+919651770378" className="text-[#2c6e49] hover:underline">
-                    +919651770378
-                  </a>
-                </p>
+                <p><strong>Principal Investigator:</strong> Muskan</p>
+                <p><strong>Department:</strong> Bioinformatics</p>
               </div>
             </div>
           </div>
