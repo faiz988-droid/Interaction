@@ -33,7 +33,7 @@ export default function AboutPage() {
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-neutral-900">Our Team</h2>
           <p className="text-lg text-neutral-600 mt-2">
-            The people behind Plant miRNA
+            The people behind plant miRNA
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export default function AboutPage() {
         <Separator className="my-12" />
 
         <div className="text-center text-neutral-500 text-sm">
-          <p>© 2025 Plant miRNA. All rights reserved.</p>
+          <p>© 2025 plant miRNA. All rights reserved.</p>
           <p className="mt-1">
             Developed for the plant genomics research community.
           </p>

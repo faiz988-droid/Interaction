@@ -11,7 +11,7 @@ export default function HomePage() {
         <div className="bg-[#2c6e49] rounded-xl p-8 text-white">
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl font-sans font-bold mb-4">
-              plantmiRNA and lncRNA interaction
+              plant miRNA and lncRNA interaction
             </h1>
             <p className="text-lg mb-6">
               Predict potential new interactions between microRNA and long non-coding RNA in Arabidopsis thaliana 

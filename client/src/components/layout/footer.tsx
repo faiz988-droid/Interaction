@@ -114,7 +114,7 @@ export default function Footer() {
         <Separator className="my-6 bg-neutral-800" />
 
         <div className="flex flex-col md:flex-row justify-between text-sm text-neutral-500">
-          <p>© 2025 PlantmiRNA Database. All rights reserved.</p>
+          <p>© 2025 plant miRNA Database. All rights reserved.</p>
           <p className="mt-2 md:mt-0">
             <a href="#" className="hover:text-neutral-400">
               Privacy Policy
