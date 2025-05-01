@@ -40,21 +40,34 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <Card>
             <CardContent className="pt-6">
-              <div className="flex items-center mb-4">
-                <h2 className="text-2xl font-semibold">Project Overview</h2>
-              </div>
-              <p className="text-neutral-600 mb-4">
-                Plant miRNA is a web application designed for researchers and
-                bioinformaticians studying plant genomics, specifically focusing
-                on the interactions between microRNAs (miRNAs) and long
-                non-coding RNAs (lncRNAs) in plant species.
+              <h4 className="font-semibold">Muskan</h4>
+              <p>Msc bioinformatics</p>
+              <p>Project Lead & Developer</p>
+              <p>
+                Leading the development of Plant miRNA with expertise in plant
+                genomics and RNA biology
               </p>
-              <p className="text-neutral-600">
-                Our platform integrates cutting-edge bioinformatics tools like
-                RNAhybrid and Vienna RNA packages to provide accurate
-                predictions of miRNA-lncRNA interactions, with a focus on
-                expanding beyond model species like Arabidopsis thaliana to
-                cover diverse plant genomes.
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="pt-6">
+              <h4 className="font-semibold">Research Collaborators</h4>
+              <p>Scientific Advisors</p>
+              <p>
+                Plant genomics researchers providing domain expertise and
+                validation of prediction algorithms
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="pt-6">
+              <h4 className="font-semibold">Open Source Community</h4>
+              <p>Contributors</p>
+              <p>
+                Developers and researchers contributing to improve the
+                platform's capabilities
               </p>
             </CardContent>
           </Card>
