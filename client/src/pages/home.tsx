@@ -11,19 +11,13 @@ export default function HomePage() {
         <div className="bg-[#2c6e49] rounded-xl p-8 text-white">
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl font-sans font-bold mb-4">
-              Plant miRNA–lncRNA Interaction Database & Prediction Tool
+              plantmiRNA and lncRNA interaction
             </h1>
             <p className="text-lg mb-6">
-              Explore microRNA and long non-coding RNA interactions in Arabidopsis thaliana 
-              and predict potential new interactions with our specialized tools.
+              Predict potential new interactions between microRNA and long non-coding RNA in Arabidopsis thaliana 
+              with our specialized tools.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/browse">
-                <Button variant="secondary" className="flex items-center text-[#2c6e49] bg-white hover:bg-neutral-100">
-                  Browse Interactions
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
               <Link href="/predict">
                 <Button className="flex items-center bg-[#1e4a31] hover:bg-opacity-90">
                   Try Prediction Tool
