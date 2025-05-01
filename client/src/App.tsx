@@ -10,6 +10,8 @@ import HomePage from "@/pages/home";
 import BrowsePage from "@/pages/browse";
 import PredictPage from "@/pages/predict";
 import AboutPage from "@/pages/about";
+import ResourcesPage from "@/pages/resources";
+import ContactPage from "@/pages/contact";
 
 function Router() {
   return (
@@ -18,6 +20,8 @@ function Router() {
       <Route path="/browse" component={BrowsePage} />
       <Route path="/predict" component={PredictPage} />
       <Route path="/about" component={AboutPage} />
+      <Route path="/resources" component={ResourcesPage} />
+      <Route path="/contact" component={ContactPage} />
       <Route component={NotFound} />
     </Switch>
   );
