@@ -120,29 +120,6 @@ export default function PredictPage() {
                   value={activeTab}
                   onValueChange={setActiveTab}
                 >
-                  <div className="border-b border-neutral-200 mb-4">
-                    <TabsList className="bg-transparent border-b h-auto p-0">
-                      <TabsTrigger
-                        value="input-sequences"
-                        className="data-[state=active]:border-[#2c6e49] data-[state=active]:text-[#2c6e49] rounded-none border-b-2 border-transparent px-1 py-2"
-                      >
-                        Enter Sequences
-                      </TabsTrigger>
-                      <TabsTrigger
-                        value="upload-files"
-                        className="data-[state=active]:border-[#2c6e49] data-[state=active]:text-[#2c6e49] rounded-none border-b-2 border-transparent px-1 py-2"
-                      >
-                        Upload FASTA Files
-                      </TabsTrigger>
-                      <TabsTrigger
-                        value="select-database"
-                        className="data-[state=active]:border-[#2c6e49] data-[state=active]:text-[#2c6e49] rounded-none border-b-2 border-transparent px-1 py-2"
-                      >
-                        Select from Database
-                      </TabsTrigger>
-                    </TabsList>
-                  </div>
-
                   <TabsContent value="input-sequences" className="mt-0">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
@@ -181,100 +158,6 @@ export default function PredictPage() {
                         />
                         <p className="mt-1 text-sm text-neutral-500">
                           Enter full sequence or a specific region of interest
-                        </p>
-                      </div>
-                    </div>
-                  </TabsContent>
-
-                  <TabsContent value="upload-files" className="mt-0">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <Label
-                          htmlFor="mirna-file"
-                          className="text-sm font-medium text-neutral-700 mb-1"
-                        >
-                          miRNA FASTA File
-                        </Label>
-                        <div className="border-2 border-dashed border-neutral-300 rounded-md px-6 py-8 text-center">
-                          <div className="space-y-2">
-                            <p className="text-sm text-neutral-500">
-                              Upload a FASTA file containing miRNA sequences
-                            </p>
-                            <Button variant="outline" disabled className="mt-2">
-                              Select File
-                            </Button>
-                          </div>
-                          <p className="mt-2 text-xs text-neutral-500">
-                            (Feature coming soon)
-                          </p>
-                        </div>
-                      </div>
-                      <div>
-                        <Label
-                          htmlFor="lncrna-file"
-                          className="text-sm font-medium text-neutral-700 mb-1"
-                        >
-                          lncRNA FASTA File
-                        </Label>
-                        <div className="border-2 border-dashed border-neutral-300 rounded-md px-6 py-8 text-center">
-                          <div className="space-y-2">
-                            <p className="text-sm text-neutral-500">
-                              Upload a FASTA file containing lncRNA sequences
-                            </p>
-                            <Button variant="outline" disabled className="mt-2">
-                              Select File
-                            </Button>
-                          </div>
-                          <p className="mt-2 text-xs text-neutral-500">
-                            (Feature coming soon)
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </TabsContent>
-
-                  <TabsContent value="select-database" className="mt-0">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <Label
-                          htmlFor="mirna-db"
-                          className="text-sm font-medium text-neutral-700 mb-1"
-                        >
-                          Select miRNA from Database
-                        </Label>
-                        <Select disabled>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select a miRNA" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="mir167a">ath-miR167a</SelectItem>
-                            <SelectItem value="mir156a">ath-miR156a</SelectItem>
-                            <SelectItem value="mir319a">ath-miR319a</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <p className="mt-1 text-sm text-neutral-500">
-                          (Feature coming soon)
-                        </p>
-                      </div>
-                      <div>
-                        <Label
-                          htmlFor="lncrna-db"
-                          className="text-sm font-medium text-neutral-700 mb-1"
-                        >
-                          Select lncRNA from Database
-                        </Label>
-                        <Select disabled>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select a lncRNA" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="blil1">BLIL1</SelectItem>
-                            <SelectItem value="elena1">ELENA1</SelectItem>
-                            <SelectItem value="coldair">COLDAIR</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <p className="mt-1 text-sm text-neutral-500">
-                          (Feature coming soon)
                         </p>
                       </div>
                     </div>
