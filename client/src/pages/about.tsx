@@ -13,7 +13,29 @@ export default function AboutPage() {
           A platform for plant miRNA-lncRNA interaction prediction
         </p>
       </header>
-
+      <section className="mb-12 grid md:grid-cols-2 gap-8">
+        <Card>
+          <CardContent className="pt-6">
+            <div className="flex items-center mb-4">
+              <BookOpen className="h-6 w-6 text-[#2c6e49] mr-3" />
+              <h2 className="text-2xl font-semibold">Project Overview</h2>
+            </div>
+            <p className="text-neutral-600">
+              PlantmiRNA is a web application designed for researchers and
+              bioinformaticians studying plant genomics, specifically focusing
+              on the interactions between microRNAs (miRNAs) and long non-coding
+              RNAs (lncRNAs) in plant species.
+            </p>
+            <p className="text-neutral-600">
+              Our platform integrates cutting-edge bioinformatics tools like
+              RNAhybrid and Vienna RNA packages to provide accurate predictions
+              of miRNA-lncRNA interactions, with a focus on expanding beyond
+              model species like Arabidopsis thaliana to cover diverse plant
+              genomes.
+            </p>
+          </CardContent>
+        </Card>
+      </section>
       <Card>
         <CardContent className="pt-6">
           <div className="flex items-center mb-4">

@@ -49,16 +49,11 @@ export default function Footer() {
             <h3 className="font-sans font-semibold text-lg mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="path/to/attached_assets/contact[1].html"
-                  className="text-neutral-400 hover:text-white"
-                >
-                  Contact Us
-                </a>
+                <a className="text-neutral-400 hover:text-white">Contact Us</a>
               </li>
             </ul>
             <div className="text-neutral-400 mt-4">
-              <h4 className="font-semibold">Muskan</h4>
+              <h4 className="font-semibold hover:text-white">Muskan</h4>
               <p>
                 Email:{" "}
                 <a
