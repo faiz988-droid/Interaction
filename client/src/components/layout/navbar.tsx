@@ -22,8 +22,7 @@ export default function Navbar() {
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
               <div className="flex items-center">
-                <Sprout className="text-[#2c6e49] h-6 w-6 mr-2" />
-                <span className="font-sans font-bold text-xl text-[#2c6e49]">plantmiRNA and lncRNA interaction</span>
+                <span className="font-sans font-bold text-xl text-[#2c6e49]">plant miRNA and lncRNA interaction</span>
               </div>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
