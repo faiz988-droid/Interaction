@@ -13,6 +13,7 @@ export default function Navbar() {
     { href: "/predict", label: "Prediction Tool" },
     { href: "/resources", label: "Resources" },
     { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact Us" }, // Added Contact Us link
   ];
 
   return (
