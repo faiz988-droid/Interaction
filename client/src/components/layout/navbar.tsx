@@ -11,7 +11,7 @@ export default function Navbar() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/predict", label: "Prediction Tool" },
-    { href: "#", label: "Documentation" },
+    { href: "/resources", label: "Resources" },
     { href: "/about", label: "About" },
   ];
 
