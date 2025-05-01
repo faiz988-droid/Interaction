@@ -1,115 +1,74 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Sprout, Users, Database, BookOpen, Globe, Microscope } from "lucide-react";
+import { Users, Database, BookOpen, Globe, Microscope } from "lucide-react";
 
 export default function AboutPage() {
   return (
     <div className="container mx-auto py-12 px-4">
       <header className="text-center mb-12">
-        <h1 className="text-4xl font-sans font-bold text-neutral-900 mb-4">About plantmiRNA and lncRNA interaction</h1>
+        <h1 className="text-4xl font-sans font-bold text-neutral-900 mb-4">
+          About plant miRNA and lncRNA interaction
+        </h1>
         <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
           A platform for plant miRNA-lncRNA interaction prediction
         </p>
       </header>
 
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
-        <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center mb-4">
-              <Sprout className="h-6 w-6 text-[#2c6e49] mr-3" />
-              <h2 className="text-2xl font-semibold">Project Overview</h2>
-            </div>
-            <p className="text-neutral-600 mb-4">
-              PlantmiRNA is a web application designed for researchers and bioinformaticians studying 
-              plant genomics, specifically focusing on the interactions between microRNAs (miRNAs) and 
-              long non-coding RNAs (lncRNAs) in plant species.
-            </p>
-            <p className="text-neutral-600">
-              Our platform integrates cutting-edge bioinformatics tools like RNAhybrid and Vienna RNA 
-              packages to provide accurate predictions of miRNA-lncRNA interactions, with a focus on 
-              expanding beyond model species like Arabidopsis thaliana to cover diverse plant genomes.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center mb-4">
-              <Database className="h-6 w-6 text-[#2c6e49] mr-3" />
-              <h2 className="text-2xl font-semibold">Features</h2>
-            </div>
-            <ul className="space-y-2 text-neutral-600 list-disc pl-5">
-              <li>Advanced prediction tool for miRNA-lncRNA interactions</li>
-              <li>Specialized algorithms for plant-specific interactions</li>
-            </ul>
-          </CardContent>
-        </Card>
-      </div>
+      <Card>
+        <CardContent className="pt-6">
+          <div className="flex items-center mb-4">
+            <Database className="h-6 w-6 text-[#2c6e49] mr-3" />
+            <h2 className="text-2xl font-semibold">Features</h2>
+          </div>
+          <ul className="space-y-2 text-neutral-600 list-disc pl-5">
+            <li>Advanced prediction tool for miRNA-lncRNA interactions</li>
+            <li>Specialized algorithms for plant-specific interactions</li>
+          </ul>
+        </CardContent>
+      </Card>
 
       <Separator className="my-12" />
 
       <section className="mb-12">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-neutral-900">Our Team</h2>
-          <p className="text-lg text-neutral-600 mt-2">The people behind PlantmiRNA</p>
+          <p className="text-lg text-neutral-600 mt-2">
+            The people behind Plant miRNA
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <Card className="text-center">
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <Card>
             <CardContent className="pt-6">
-              <div className="flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full bg-[#4da375] text-white flex items-center justify-center mb-4">
-                  <Users className="h-10 w-10" />
-                </div>
-                <h3 className="text-xl font-bold text-neutral-900">Muskan</h3>
-                <p className="text-sm text-neutral-500 mt-1">Project Lead & Developer</p>
-                <p className="text-neutral-600 mt-4">
-                  Leading the development of PlantmiRNA with expertise in plant genomics and RNA biology
-                </p>
+              <div className="flex items-center mb-4">
+                <h2 className="text-2xl font-semibold">Project Overview</h2>
               </div>
+              <p className="text-neutral-600 mb-4">
+                Plant miRNA is a web application designed for researchers and
+                bioinformaticians studying plant genomics, specifically focusing
+                on the interactions between microRNAs (miRNAs) and long
+                non-coding RNAs (lncRNAs) in plant species.
+              </p>
+              <p className="text-neutral-600">
+                Our platform integrates cutting-edge bioinformatics tools like
+                RNAhybrid and Vienna RNA packages to provide accurate
+                predictions of miRNA-lncRNA interactions, with a focus on
+                expanding beyond model species like Arabidopsis thaliana to
+                cover diverse plant genomes.
+              </p>
             </CardContent>
           </Card>
+        </div>
 
-          <Card className="text-center">
-            <CardContent className="pt-6">
-              <div className="flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full bg-[#4da375] text-white flex items-center justify-center mb-4">
-                  <BookOpen className="h-10 w-10" />
-                </div>
-                <h3 className="text-xl font-bold text-neutral-900">Research Collaborators</h3>
-                <p className="text-sm text-neutral-500 mt-1">Scientific Advisors</p>
-                <p className="text-neutral-600 mt-4">
-                  Plant genomics researchers providing domain expertise and validation of prediction algorithms
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+        <Separator className="my-12" />
 
-          <Card className="text-center">
-            <CardContent className="pt-6">
-              <div className="flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full bg-[#4da375] text-white flex items-center justify-center mb-4">
-                  <Globe className="h-10 w-10" />
-                </div>
-                <h3 className="text-xl font-bold text-neutral-900">Open Source Community</h3>
-                <p className="text-sm text-neutral-500 mt-1">Contributors</p>
-                <p className="text-neutral-600 mt-4">
-                  Developers and researchers contributing to improve the platform's capabilities
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+        <div className="text-center text-neutral-500 text-sm">
+          <p>© 2025 Plant miRNA. All rights reserved.</p>
+          <p className="mt-1">
+            Developed for the plant genomics research community.
+          </p>
         </div>
       </section>
-
-      <Separator className="my-12" />
-
-      
-
-      <div className="text-center text-neutral-500 text-sm">
-        <p>© 2025 PlantmiRNA. All rights reserved.</p>
-        <p className="mt-1">Developed with ❤️ for the plant genomics research community.</p>
-      </div>
     </div>
   );
 }

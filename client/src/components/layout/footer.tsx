@@ -1,6 +1,5 @@
 import { Link } from "wouter";
 import { Separator } from "@/components/ui/separator";
-import { Sprout, Github, Twitter, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -9,28 +8,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center mb-4">
-              <Sprout className="text-[#4da375] h-6 w-6 mr-2" />
-              <span className="font-sans font-bold text-xl">PlantmiRNA</span>
+              <span className="font-sans font-bold text-xl">
+                Plant miRNA and lncRNA interaction
+              </span>
             </div>
             <p className="text-neutral-400 mb-4">
-              A comprehensive database and prediction tool for miRNA-lncRNA interactions 
-              in Arabidopsis thaliana.
+              A comprehensive database and prediction tool for miRNA-lncRNA
+              interactions in Arabidopsis thaliana.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-neutral-400 hover:text-white">
-                <Github className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-neutral-400 hover:text-white">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-neutral-400 hover:text-white">
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </div>
           </div>
-          
+
           <div>
-            <h3 className="font-sans font-semibold text-lg mb-4">Quick Links</h3>
+            <h3 className="font-sans font-semibold text-lg mb-4">
+              Quick Links
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/">
@@ -38,56 +29,100 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/browse">
-                  <a className="text-neutral-400 hover:text-white">Browse Interactions</a>
-                </Link>
-              </li>
-              <li>
                 <Link href="/predict">
-                  <a className="text-neutral-400 hover:text-white">Prediction Tool</a>
+                  <a className="text-neutral-400 hover:text-white">
+                    Prediction Tool
+                  </a>
                 </Link>
-              </li>
-              <li>
-                <a href="#" className="text-neutral-400 hover:text-white">API Documentation</a>
               </li>
               <li>
                 <Link href="/about">
-                  <a className="text-neutral-400 hover:text-white">About the Project</a>
+                  <a className="text-neutral-400 hover:text-white">
+                    About the Project
+                  </a>
                 </Link>
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="font-sans font-semibold text-lg mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-neutral-400 hover:text-white">Tutorials</a>
-              </li>
-              <li>
-                <a href="#" className="text-neutral-400 hover:text-white">Publications</a>
-              </li>
-              <li>
-                <a href="#" className="text-neutral-400 hover:text-white">Download Data</a>
-              </li>
-              <li>
-                <a href="#" className="text-neutral-400 hover:text-white">Related Databases</a>
-              </li>
-              <li>
-                <a href="#" className="text-neutral-400 hover:text-white">Contact Us</a>
+                <a
+                  href="path/to/attached_assets/contact[1].html"
+                  className="text-neutral-400 hover:text-white"
+                >
+                  Contact Us
+                </a>
               </li>
             </ul>
+            <div className="text-neutral-400 mt-4">
+              <h4 className="font-semibold">Muskan</h4>
+              <p>
+                Email:{" "}
+                <a
+                  href="mailto:muskan.ansari286660@gmail.com"
+                  className="text-neutral-300 hover:underline"
+                >
+                  muskan.ansari286660@gmail.com
+                </a>
+              </p>
+              <p>
+                Phone:{" "}
+                <a
+                  href="tel:7084468373"
+                  className="text-neutral-300 hover:underline"
+                >
+                  7084468373
+                </a>
+              </p>
+            </div>
+            <div className="text-neutral-400 mt-4">
+              <h4 className="font-semibold">Noopur Singh</h4>
+              <p>
+                Email:{" "}
+                <a
+                  href="mailto:noopur@example.com"
+                  className="text-neutral-300 hover:underline"
+                >
+                  noopur@example.com
+                </a>
+              </p>
+              <p>
+                Phone:{" "}
+                <a
+                  href="tel:+919651770378"
+                  className="text-neutral-300 hover:underline"
+                >
+                  +919651770378
+                </a>
+              </p>
+              <p>
+                Alternate Phone:{" "}
+                <a
+                  href="tel:+919651770378"
+                  className="text-neutral-300 hover:underline"
+                >
+                  +919651770378
+                </a>
+              </p>
+            </div>
           </div>
         </div>
-        
+
         <Separator className="my-6 bg-neutral-800" />
-        
+
         <div className="flex flex-col md:flex-row justify-between text-sm text-neutral-500">
           <p>© 2025 PlantmiRNA Database. All rights reserved.</p>
           <p className="mt-2 md:mt-0">
-            <a href="#" className="hover:text-neutral-400">Privacy Policy</a>
+            <a href="#" className="hover:text-neutral-400">
+              Privacy Policy
+            </a>
             <span className="mx-2">|</span>
-            <a href="#" className="hover:text-neutral-400">Terms of Use</a>
+            <a href="#" className="hover:text-neutral-400">
+              Terms of Use
+            </a>
           </p>
         </div>
       </div>
