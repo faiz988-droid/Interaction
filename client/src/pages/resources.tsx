@@ -8,32 +8,32 @@ export default function ResourcesPage() {
     {
       name: "PLncDB",
       description: "Database of plant lncRNAs with annotations and expression profiles.",
-      link: "http://plncdb.example.org"
+      link: "http://plncdb.tobaccodb.org"
     },
     {
       name: "miRBase",
       description: "Repository of plant and animal miRNA sequences and annotations.",
-      link: "http://mirbase.example.org"
+      link: "http://www.mirbase.org"
     },
     {
       name: "PmiREN",
       description: "Plant miRNA database with regulation and expression profiles.",
-      link: "http://pmiren.example.org"
+      link: "http://pmiren.org"
     },
     {
       name: "psRNATarget",
       description: "Predicts miRNA targets in plants, including lncRNAs.",
-      link: "http://psrnatarget.example.org"
+      link: "http://psrnatarget.org"
     },
     {
       name: "Cytoscape",
       description: "Software for network visualization and analysis.",
-      link: "http://cytoscape.example.org"
+      link: "http://cytoscape.org"
     },
     {
       name: "GreenC",
       description: "Plant lncRNA database related to abiotic stress regulation.",
-      link: "http://greenc.example.org"
+      link: "http://greenc.org"
     }
   ];
 
