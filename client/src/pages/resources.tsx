@@ -18,22 +18,22 @@ export default function ResourcesPage() {
     {
       name: "PmiREN",
       description: "Plant miRNA database with regulation and expression profiles.",
-      link: "http://pmiren.org"
+      link: "https://pmiren.com/"
     },
     {
       name: "psRNATarget",
       description: "Predicts miRNA targets in plants, including lncRNAs.",
-      link: "http://psrnatarget.org"
+      link: "https://www.zhaolab.org/psRNATarget/home"
     },
     {
       name: "Cytoscape",
       description: "Software for network visualization and analysis.",
-      link: "http://cytoscape.org"
+      link: "https://cytoscape.org/"
     },
     {
       name: "GreenC",
       description: "Plant lncRNA database related to abiotic stress regulation.",
-      link: "http://greenc.org"
+      link: "http://greenc.sequentiabiotech.com/wiki2/Main_Page"
     }
   ];
 
