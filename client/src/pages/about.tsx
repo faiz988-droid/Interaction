@@ -21,7 +21,7 @@ export default function AboutPage() {
               <h2 className="text-2xl font-semibold">Project Overview</h2>
             </div>
             <p className="text-neutral-600">
-              PlantmiRNA is a web application designed for researchers and
+              PlantmiRNA and lncRNA interaction database is a web application designed for researchers and
               bioinformaticians studying plant genomics, specifically focusing
               on the interactions between microRNAs (miRNAs) and long non-coding
               RNAs (lncRNAs) in plant species.
