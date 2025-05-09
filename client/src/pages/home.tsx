@@ -25,7 +25,7 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-4">
               <Link href="/predict">
                 <Button className="flex items-center bg-[#1e4a31] hover:bg-opacity-90">
-                  Try Prediction Tool
+                     Prediction Tool
                   <FunctionSquare className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
