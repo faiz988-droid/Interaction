@@ -22,19 +22,19 @@ export default function ContactPage() {
                 <p className="text-neutral-600">
                   <strong>Email:</strong>{" "}
                   <a
-                    href="mailto:muskan.ansari286660@gmail.com"
+                    href="mailto:muskan39771@gmail.com"
                     className="text-[#2c6e49] hover:underline"
                   >
-                    muskan.ansari286660@gmail.com
+                    muskan39771@gmail.com
                   </a>
                 </p>
                 <p className="text-neutral-600">
                   <strong>Phone:</strong>{" "}
                   <a
-                    href="tel:7084468373"
+                    href="tel:7084461234"
                     className="text-[#2c6e49] hover:underline"
                   >
-                    7084468373
+                    7084461234
                   </a>
                 </p>
               </div>
