@@ -57,19 +57,19 @@ export default function Footer() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:muskan.ansari286660@gmail.com"
+                  href="mailto:muskan39771@gmail.com"
                   className="text-neutral-300 hover:underline"
                 >
-                  muskan.ansari286660@gmail.com
+                  muskan39771@gmail.com
                 </a>
               </p>
               <p>
                 Phone:{" "}
                 <a
-                  href="tel:7084468373"
+                  href="tel:7084461234"
                   className="text-neutral-300 hover:underline"
                 >
-                  7084468373
+                  7084461234
                 </a>
               </p>
             </div>
@@ -78,10 +78,10 @@ export default function Footer() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:noopur@example.com"
+                  href="mailto:noopurmaam@gamil.com"
                   className="text-neutral-300 hover:underline"
                 >
-                  noopur@example.com
+                  noopurmaam@gmail.com
                 </a>
               </p>
               <p>
