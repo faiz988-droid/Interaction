@@ -78,10 +78,10 @@ export default function Footer() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:noopurmaam@gamil.com"
+                  href="mailto:singh.rajpoot.noopur@gmail.com"
                   className="text-neutral-300 hover:underline"
                 >
-                  noopurmaam@gmail.com
+                  singh.rajpoot.noopur@gmail.com
                 </a>
               </p>
               <p>
