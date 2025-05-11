@@ -46,10 +46,10 @@ export default function ContactPage() {
                 <p className="text-neutral-600">
                   <strong>Email:</strong>{" "}
                   <a
-                    href="mailto:noopur@example.com"
+                    href="mailto:singh.rajpoot.noopur@gmail.com"
                     className="text-[#2c6e49] hover:underline"
                   >
-                    noopur@example.com
+                    singh.rajpoot.noopur@gmail.com
                   </a>
                 </p>
                 <p className="text-neutral-600">
