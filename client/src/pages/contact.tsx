@@ -42,7 +42,7 @@ export default function ContactPage() {
             <div>
               <h2 className="text-2xl font-semibold mb-4"></h2>
               <div className="space-y-2">
-                <h3 className="text-lg font-medium">Noopur Singh</h3>
+                <h3 className="text-lg font-medium">Dr. Noopur Singh</h3>
                 <p className="text-neutral-600">
                   <strong>Email:</strong>{" "}
                   <a
