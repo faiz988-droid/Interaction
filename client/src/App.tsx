@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
 import HomePage from "@/pages/home";
 import BrowsePage from "@/pages/browse";
 import PredictPage from "@/pages/predict";
@@ -36,7 +35,6 @@ function App() {
           <main className="flex-grow">
             <Router />
           </main>
-          <Footer />
         </div>
         <Toaster />
       </TooltipProvider>
