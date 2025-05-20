@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, Search, Sprout } from "lucide-react";
+import { Menu, Sprout } from "lucide-react"; // Removed Search import
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
@@ -13,7 +13,7 @@ export default function Navbar() {
     { href: "/predict", label: "Prediction Tool" },
     { href: "/resources", label: "Resources" },
     { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact Us" }, // Added Contact Us link
+    { href: "/contact", label: "Contact Us" },
   ];
 
   return (
@@ -21,8 +21,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
-            <div className="flex-shrink-0 flex items-center">                <div className="flex items-center">
-                <span className="font-sans font-bold text-xl text-[#2c6e49]">Plant miRNA and lncRNA interaction</span>
+            <div className="flex-shrink-0 flex items-center">
+              <div className="flex items-center">
+                <span className="font-sans font-bold text-xl text-[#2c6e49]">
+                  Plant miRNA and lncRNA interaction
+                </span>
               </div>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -42,15 +45,9 @@ export default function Navbar() {
               ))}
             </div>
           </div>
-          <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="text-neutral-500 hover:text-neutral-700"
-            >
-              <Search className="h-5 w-5" />
-            </Button>
-          </div>
+
+          {/* Removed search icon button here */}
+
           <div className="-mr-2 flex items-center sm:hidden">
             <Button
               variant="ghost"
