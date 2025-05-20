@@ -15,10 +15,10 @@ export default function ContactPage() {
       <Card>
         <CardContent className="pt-6">
           <div className="grid md:grid-cols-2 gap-8">
+            {/* Contact: Muskan */}
             <div>
-              <h2 className="text-2xl font-semibold mb-4"></h2>
+              <h2 className="text-2xl font-semibold mb-4">Muskan</h2>
               <div className="space-y-2">
-                <h3 className="text-lg font-medium">Muskan</h3>
                 <p className="text-neutral-600">
                   <strong>Email:</strong>{" "}
                   <a
@@ -39,10 +39,11 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
+
+            {/* Contact: Dr. Noopur Singh */}
             <div>
-              <h2 className="text-2xl font-semibold mb-4"></h2>
+              <h2 className="text-2xl font-semibold mb-4">Dr. Noopur Singh</h2>
               <div className="space-y-2">
-                <h3 className="text-lg font-medium">Dr. Noopur Singh</h3>
                 <p className="text-neutral-600">
                   <strong>Email:</strong>{" "}
                   <a
@@ -58,16 +59,7 @@ export default function ContactPage() {
                     href="tel:+919651770378"
                     className="text-[#2c6e49] hover:underline"
                   >
-                    +919651770378
-                  </a>
-                </p>
-                <p className="text-neutral-600">
-                  <strong>Alternate Phone:</strong>{" "}
-                  <a
-                    href="tel:+919651770378"
-                    className="text-[#2c6e49] hover:underline"
-                  >
-                    +919651770378
+                    +91 9651770378
                   </a>
                 </p>
               </div>

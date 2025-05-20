@@ -6,11 +6,10 @@ export default function AboutPage() {
   return (
     <div className="container mx-auto py-12 px-4">
       <header className="text-center mb-12">
-        <h1 className="text-4xl font-sans font-bold text-neutral-900 mb-4">
-          About plant miRNA and lncRNA interaction
+        <h1 className="text-4xl font-sans font-bold text-neutral-900 mb-4">          About Plant miRNA and lncRNA interaction
         </h1>
         <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-          A platform for plant miRNA-lncRNA interaction prediction
+          A platform for Plant miRNA-lncRNA interaction prediction
         </p>
       </header>
       <section className="mb-12 grid md:grid-cols-2 gap-8">
