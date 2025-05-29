@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, Sprout } from "lucide-react"; // Removed Search import
+import { Menu, Sprout, Database } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
@@ -22,10 +22,18 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <div className="flex items-center">
-                <span className="font-sans font-bold text-xl text-[#2c6e49]">
+              <div className="flex items-center">                <span className="font-sans font-bold text-xl text-[#2c6e49]">
                   Plant miRNA and lncRNA interaction
-                </span>
+                </span>                <Link href="/interaction-table">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="w-4 h-4 p-0 opacity-10 hover:opacity-100 transition-opacity"
+                    title="Database"
+                  >
+                    <Database className="w-3 h-3" />
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">

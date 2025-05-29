@@ -20,6 +20,24 @@ import { type PredictionResult } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { highlightBindingSite } from "@/lib/alignment";
 
+// Helper function to store prediction results
+const storePrediction = (prediction: PredictionResult) => {
+  try {
+    const storedPredictions = JSON.parse(localStorage.getItem("predictions") || "[]");
+    const predictionWithMetadata = {
+      ...prediction,
+      timestamp: new Date().toISOString(),
+      id: `pred_${Date.now()}`
+    };
+    storedPredictions.unshift(predictionWithMetadata); // Add new prediction at the start
+    localStorage.setItem("predictions", JSON.stringify(storedPredictions.slice(0, 100))); // Keep last 100 predictions
+    return true;
+  } catch (error) {
+    console.error("Failed to store prediction:", error);
+    return false;
+  }
+};
+
 export default function PredictPage() {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("input-sequences");
@@ -50,9 +68,10 @@ export default function PredictPage() {
     },
     onSuccess: (data: PredictionResult) => {
       setPredictionResult(data);
+      const stored = storePrediction(data);
       toast({
         title: "Prediction complete",
-        description: `Interaction predicted with score: ${data.score}/100`,
+        description: `Interaction predicted with score: ${data.score}/100${stored ? "" : " (Failed to save to history)"}`,
       });
     },
     onError: (error) => {
@@ -65,12 +84,20 @@ export default function PredictPage() {
     },
   });
 
-  // Handle form input changes
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  // Input handlers
+  const handleInputChange = {
+    text: (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setFormData(prev => ({
+        ...prev,
+        [e.target.name]: e.target.value
+      }));
+    },
+    select: (value: string, field: string) => {
+      setFormData(prev => ({
+        ...prev,
+        [field]: value
+      }));
+    }
   };
 
   // Handle form submit
@@ -135,7 +162,7 @@ export default function PredictPage() {
                           placeholder="Enter miRNA sequence (5'-3')"
                           className="font-mono h-24"
                           value={formData.mirnaSequence}
-                          onChange={handleInputChange}
+                          onChange={handleInputChange.text}
                         />
                         <p className="mt-1 text-sm text-neutral-500">
                           Example: UGAAGCUGCCAGCAUGAUCUA (miR167a)
@@ -154,7 +181,7 @@ export default function PredictPage() {
                           placeholder="Enter lncRNA sequence fragment (5'-3')"
                           className="font-mono h-24"
                           value={formData.lncrnaSequence}
-                          onChange={handleInputChange}
+                          onChange={handleInputChange.text}
                         />
                         <p className="mt-1 text-sm text-neutral-500">
                           Enter full sequence or a specific region of interest
@@ -180,12 +207,9 @@ export default function PredictPage() {
                       className="text-sm font-medium text-neutral-700 mb-1"
                     >
                       Seed Region
-                    </Label>
-                    <Select
-                      defaultValue={formData.seedRegion}
-                      onValueChange={(value) =>
-                        setFormData({ ...formData, seedRegion: value })
-                      }
+                    </Label>                    <Select
+                      value={formData.seedRegion}
+                      onValueChange={(value) => handleInputChange.select(value, 'seedRegion')}
                     >
                       <SelectTrigger>
                         <SelectValue placeholder="2-7 (Default)" />
@@ -203,12 +227,9 @@ export default function PredictPage() {
                       className="text-sm font-medium text-neutral-700 mb-1"
                     >
                       Score Threshold
-                    </Label>
-                    <Select
-                      defaultValue={formData.scoreThreshold}
-                      onValueChange={(value) =>
-                        setFormData({ ...formData, scoreThreshold: value })
-                      }
+                    </Label>                    <Select
+                      value={formData.scoreThreshold}
+                      onValueChange={(value) => handleInputChange.select(value, 'scoreThreshold')}
                     >
                       <SelectTrigger>
                         <SelectValue placeholder="Medium (≥50)" />
@@ -227,11 +248,8 @@ export default function PredictPage() {
                     >
                       Algorithm
                     </Label>
-                    <Select
-                      defaultValue={formData.algorithm}
-                      onValueChange={(value) =>
-                        setFormData({ ...formData, algorithm: value })
-                      }
+                    <Select                      value={formData.algorithm}
+                      onValueChange={(value) => handleInputChange.select(value, 'algorithm')}
                     >
                       <SelectTrigger>
                         <SelectValue placeholder="Standard Alignment" />
@@ -286,11 +304,8 @@ export default function PredictPage() {
                     <Label className="text-sm font-medium text-neutral-700 mb-1">
                       G:U Wobble Pairs
                     </Label>
-                    <RadioGroup
-                      defaultValue={formData.guWobble}
-                      onValueChange={(value) =>
-                        setFormData({ ...formData, guWobble: value })
-                      }
+                    <RadioGroup                      value={formData.guWobble}
+                      onValueChange={(value) => handleInputChange.select(value, 'guWobble')}
                       className="flex items-center space-x-4 pt-2"
                     >
                       <div className="flex items-center space-x-2">

@@ -11,6 +11,7 @@ import PredictPage from "@/pages/predict";
 import AboutPage from "@/pages/about";
 import ResourcesPage from "@/pages/resources";
 import ContactPage from "@/pages/contact";
+import InteractionTable from "@/pages/interaction-table";
 
 function Router() {
   return (
@@ -18,9 +19,9 @@ function Router() {
       <Route path="/" component={HomePage} />
       <Route path="/browse" component={BrowsePage} />
       <Route path="/predict" component={PredictPage} />
-      <Route path="/about" component={AboutPage} />
-      <Route path="/resources" component={ResourcesPage} />
+      <Route path="/about" component={AboutPage} />      <Route path="/resources" component={ResourcesPage} />
       <Route path="/contact" component={ContactPage} />
+      <Route path="/interaction-table" component={InteractionTable} />
       <Route component={NotFound} />
     </Switch>
   );
