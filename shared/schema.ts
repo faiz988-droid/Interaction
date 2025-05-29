@@ -91,6 +91,15 @@ export type PredictionResult = {
   };
 };
 
+export interface StoredPrediction extends PredictionResult {
+  id: string;
+  timestamp: string;
+  metadata?: {
+    ip?: string;
+    userAgent?: string;
+  };
+}
+
 // Search query schema
 export const searchQuerySchema = z.object({
   searchTerm: z.string().optional(),

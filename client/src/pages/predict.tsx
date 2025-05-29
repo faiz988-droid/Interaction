@@ -19,17 +19,14 @@ import { apiRequest } from "@/lib/queryClient";
 import { type PredictionResult } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { highlightBindingSite } from "@/lib/alignment";
+import { addPredictionMetadata } from "@/lib/metadata";
 
 // Helper function to store prediction results
-const storePrediction = (prediction: PredictionResult) => {
+const storePrediction = async (prediction: PredictionResult) => {
   try {
     const storedPredictions = JSON.parse(localStorage.getItem("predictions") || "[]");
-    const predictionWithMetadata = {
-      ...prediction,
-      timestamp: new Date().toISOString(),
-      id: `pred_${Date.now()}`
-    };
-    storedPredictions.unshift(predictionWithMetadata); // Add new prediction at the start
+    const predictionWithMetadata = await addPredictionMetadata(prediction);
+    storedPredictions.unshift(predictionWithMetadata);
     localStorage.setItem("predictions", JSON.stringify(storedPredictions.slice(0, 100))); // Keep last 100 predictions
     return true;
   } catch (error) {
@@ -66,9 +63,9 @@ export default function PredictPage() {
       });
       return res.json();
     },
-    onSuccess: (data: PredictionResult) => {
+    onSuccess: async (data: PredictionResult) => {
       setPredictionResult(data);
-      const stored = storePrediction(data);
+      const stored = await storePrediction(data);
       toast({
         title: "Prediction complete",
         description: `Interaction predicted with score: ${data.score}/100${stored ? "" : " (Failed to save to history)"}`,

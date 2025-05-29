@@ -1,11 +1,90 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Table, TableHeader, TableBody, TableHead, TableCell, TableRow } from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Eye } from "lucide-react";
 import type { PredictionResult } from "@shared/schema";
 
 interface StoredPrediction extends PredictionResult {
-  timestamp: string;
   id: string;
+  timestamp: string;
+  metadata?: {
+    ip?: string;
+    userAgent?: string;
+  };
+}
+
+// Inspection Dialog Component
+function InspectionDialog({ prediction }: { prediction: StoredPrediction }) {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="ghost" size="sm" className="px-2">
+          <Eye className="h-4 w-4" />
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[600px]">
+        <DialogHeader>
+          <DialogTitle>Prediction Details</DialogTitle>
+        </DialogHeader>
+        <div className="space-y-4">
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="font-medium">Date</div>
+            <div>{new Date(prediction.timestamp).toLocaleString()}</div>
+            
+            <div className="font-medium">Client IP</div>
+            <div>{prediction.metadata?.ip || 'Not available'}</div>
+            
+            <div className="font-medium">Score</div>
+            <div>{prediction.score}</div>
+            
+            <div className="font-medium">Algorithm</div>
+            <div>
+              {prediction.thermodynamics.localStructure?.includes('RNAhybrid')
+                ? 'RNAhybrid'
+                : prediction.thermodynamics.localStructure?.includes('RNAfold')
+                ? 'Vienna RNAfold'
+                : 'Standard Algorithm'}
+            </div>
+          </div>
+          
+          <div className="mt-4">
+            <h4 className="font-medium mb-2">Sequences</h4>
+            <div className="bg-neutral-50 p-3 rounded-md space-y-2">
+              <div>
+                <div className="text-xs text-neutral-500">miRNA Sequence</div>
+                <div className="font-mono text-sm">{prediction.mirnaSequence}</div>
+              </div>
+              <div>
+                <div className="text-xs text-neutral-500">lncRNA Sequence</div>
+                <div className="font-mono text-sm">{prediction.lncrnaSequence}</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <h4 className="font-medium mb-2">Technical Details</h4>
+            <div className="bg-neutral-50 p-3 rounded-md">
+              <div className="font-mono text-xs whitespace-pre-wrap overflow-auto max-h-[200px]">
+                {JSON.stringify({
+                  bindingDetails: prediction.bindingDetails,
+                  thermodynamics: prediction.thermodynamics,
+                  metadata: prediction.metadata
+                }, null, 2)}
+              </div>
+            </div>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
 }
 
 // Helper function to load predictions from localStorage
@@ -30,83 +109,80 @@ export default function InteractionTablePage() {
     <div className="container mx-auto py-12 px-4">
       <Card>
         <CardHeader>
-          <h2 className="text-2xl font-bold text-center">lncRNA - miRNA Interaction History</h2>
-          <p className="text-neutral-600 text-center">View your recent predictions and analysis results</p>
+          <h2 className="text-2xl font-bold text-center">Interaction History</h2>
+          <p className="text-neutral-600 text-center">View your recent miRNA-lncRNA interaction predictions</p>
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Score</TableHead>
-                  <TableHead>miRNA Sequence</TableHead>
-                  <TableHead>lncRNA Sequence</TableHead>
-                  <TableHead>Binding Details</TableHead>
-                  <TableHead>Energy</TableHead>
-                  <TableHead>Date</TableHead>
+                  <TableHead className="w-[80px]">Score</TableHead>
+                  <TableHead>Sequences</TableHead>
+                  <TableHead className="w-[200px]">Binding</TableHead>
+                  <TableHead className="w-[150px]">Energy</TableHead>
+                  <TableHead className="w-[150px]">Date</TableHead>
+                  <TableHead className="w-[50px]"></TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {predictions.length > 0 ? (
                   predictions.map((pred) => (
-                    <TableRow key={pred.id} className="hover:bg-neutral-50">
+                    <TableRow key={pred.id}>
                       <TableCell>
-                        <span className={`px-2 py-1 rounded-full text-white text-sm ${
+                        <div className={`px-2 py-1 rounded-full text-white text-xs font-medium w-fit ${
                           pred.score >= 70 ? "bg-green-600" :
                           pred.score >= 50 ? "bg-yellow-500" :
                           "bg-red-500"
                         }`}>
                           {pred.score}
-                        </span>
-                      </TableCell>
-                      <TableCell className="font-mono text-sm">
-                        <div className="flex flex-col">
-                          <span>{pred.mirnaName || "Custom sequence"}</span>
-                          <span className="opacity-60">
-                            {pred.mirnaSequence.length > 20
-                              ? `${pred.mirnaSequence.slice(0, 20)}...`
-                              : pred.mirnaSequence}
-                          </span>
-                        </div>
-                      </TableCell>
-                      <TableCell className="font-mono text-sm">
-                        <div className="flex flex-col">
-                          <span>{pred.lncrnaName || "Custom sequence"}</span>
-                          <span className="opacity-60">
-                            {pred.lncrnaSequence.length > 20
-                              ? `${pred.lncrnaSequence.slice(0, 20)}...`
-                              : pred.lncrnaSequence}
-                          </span>
-                          <span className="text-xs text-neutral-500">
-                            Position: {pred.bindingStart + 1}-{pred.bindingEnd}
-                          </span>
                         </div>
                       </TableCell>
                       <TableCell>
-                        <div className="flex flex-col gap-1 text-sm">
-                          <span>Match: {pred.bindingDetails.complementaryPairs}</span>
-                          <span>Mismatches: {pred.bindingDetails.mismatches}</span>
-                          <span>G:U pairs: {pred.bindingDetails.guWobblePairs}</span>
+                        <div className="space-y-1">
+                          <div className="text-sm">
+                            <span className="text-neutral-500">miRNA:</span>{" "}
+                            <span className="font-mono">
+                              {pred.mirnaSequence.length > 20
+                                ? `${pred.mirnaSequence.slice(0, 20)}...`
+                                : pred.mirnaSequence}
+                            </span>
+                          </div>
+                          <div className="text-sm">
+                            <span className="text-neutral-500">lncRNA:</span>{" "}
+                            <span className="font-mono">
+                              {pred.lncrnaSequence.length > 20
+                                ? `${pred.lncrnaSequence.slice(0, 20)}...`
+                                : pred.lncrnaSequence}
+                            </span>
+                          </div>
                         </div>
                       </TableCell>
-                      <TableCell className="text-sm">
-                        <div className="flex flex-col">
-                          <span>{pred.thermodynamics.freeEnergy.toFixed(1)} kcal/mol</span>
-                          <span className="text-neutral-500">
-                            {pred.thermodynamics.stabilityScore} stability
-                          </span>
-                          <span className="text-neutral-500">
-                            {(pred.thermodynamics.accessibility * 100).toFixed(0)}% accessible
-                          </span>
+                      <TableCell>
+                        <div className="space-y-1 text-sm">
+                          <div>Match: {pred.bindingDetails.complementaryPairs}</div>
+                          <div>Mismatches: {pred.bindingDetails.mismatches}</div>
+                          <div>Region: {pred.bindingStart + 1}-{pred.bindingEnd}</div>
                         </div>
                       </TableCell>
-                      <TableCell className="text-sm">
-                        <div className="flex flex-col">
-                          <span>{new Date(pred.timestamp).toLocaleDateString()}</span>
-                          <span className="text-neutral-500">
+                      <TableCell>
+                        <div className="space-y-1 text-sm">
+                          <div>{pred.thermodynamics.freeEnergy.toFixed(1)} kcal/mol</div>
+                          <div className="text-neutral-500">
+                            {pred.thermodynamics.stabilityScore}
+                          </div>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="text-sm">
+                          {new Date(pred.timestamp).toLocaleDateString()}
+                          <div className="text-xs text-neutral-500">
                             {new Date(pred.timestamp).toLocaleTimeString()}
-                          </span>
+                          </div>
                         </div>
+                      </TableCell>
+                      <TableCell>
+                        <InspectionDialog prediction={pred} />
                       </TableCell>
                     </TableRow>
                   ))
