@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { FunctionSquare } from "lucide-react";
@@ -62,31 +63,6 @@ export default function HomePage() {
           </CardContent>
         </Card>
       </div>
-
-      {/* Statistics Section */}
-      <section className="bg-neutral-100 rounded-lg p-6">
-        <h2 className="text-2xl font-sans font-semibold mb-6 text-center">
-          Database at a Glance
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="text-center p-4">
-            <div className="text-[#2c6e49] text-3xl font-bold mb-2">342</div>
-            <div className="text-neutral-700">miRNAs</div>
-          </div>
-          <div className="text-center p-4">
-            <div className="text-[#2c6e49] text-3xl font-bold mb-2">1,256</div>
-            <div className="text-neutral-700">lncRNAs</div>
-          </div>
-          <div className="text-center p-4">
-            <div className="text-[#2c6e49] text-3xl font-bold mb-2">5,721</div>
-            <div className="text-neutral-700">Interactions</div>
-          </div>
-          <div className="text-center p-4">
-            <div className="text-[#2c6e49] text-3xl font-bold mb-2">78%</div>
-            <div className="text-neutral-700">Experimentally validated</div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
