@@ -114,15 +114,10 @@ function InspectionDialog({ prediction }: { prediction: StoredPrediction }) {
 
 // Delete Confirmation Dialog Component
 function DeleteConfirmationDialog({ prediction, onConfirm }: { prediction: StoredPrediction; onConfirm: () => void }) {
-  const [open, setOpen] = useState(false);
-
-  const handleDelete = () => {
-    onConfirm();
-    setOpen(false);
-  };
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button
           variant="ghost"
@@ -139,13 +134,16 @@ function DeleteConfirmationDialog({ prediction, onConfirm }: { prediction: Store
             Are you sure you want to delete this prediction? This action cannot be undone.
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter className="gap-3">
-          <Button variant="secondary" onClick={() => setOpen(false)}>
+        <DialogFooter>
+          <Button variant="outline" onClick={() => setIsOpen(false)}>
             Cancel
           </Button>
           <Button
             variant="destructive"
-            onClick={handleDelete}
+            onClick={() => {
+              onConfirm();
+              setIsOpen(false);
+            }}
           >
             Delete
           </Button>
@@ -168,7 +166,6 @@ const loadStoredPredictions = (): StoredPrediction[] => {
 
 const deletePrediction = (id: string, predictions: StoredPrediction[], setPredictions: React.Dispatch<React.SetStateAction<StoredPrediction[]>>) => {
   try {
-    console.log("Deleting prediction:", id); // Debug log
     const updatedPredictions = predictions.filter(pred => pred.id !== id);
     localStorage.setItem("predictions", JSON.stringify(updatedPredictions));
     setPredictions(updatedPredictions);
