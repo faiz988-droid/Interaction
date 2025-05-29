@@ -46,7 +46,6 @@ export default function AboutPage() {
           </div>
           <ul className="space-y-2 text-neutral-600 list-disc pl-5">
             <li>Advanced prediction tool for miRNA-lncRNA interactions</li>
-            <li>Specialized algorithms for plant-specific interactions</li>
           </ul>
         </CardContent>
       </Card>

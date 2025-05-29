@@ -14,7 +14,10 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact: Muskan */}
             <div>
-              <h2 className="text-2xl font-semibold mb-4">Muskan</h2>
+              <h2 className="text-2xl font-semibold mb-2">Muskan</h2>
+              <p className="text-neutral-600 mb-4">
+                <span>Master of Science in Bioinformatics</span>
+              </p>
               <div className="space-y-2">
                 <p className="text-neutral-600">
                   <strong>Email:</strong>{" "}
@@ -39,7 +42,10 @@ export default function ContactPage() {
 
             {/* Contact: Dr. Noopur Singh */}
             <div>
-              <h2 className="text-2xl font-semibold mb-4">Dr. Noopur Singh</h2>
+              <h2 className="text-2xl font-semibold mb-2">Dr. Noopur Singh</h2>
+              <p className="text-neutral-600 mb-4">
+                <span>Assistant Professor, IANS DDUGU</span>
+              </p>
               <div className="space-y-2">
                 <p className="text-neutral-600">
                   <strong>Email:</strong>{" "}
@@ -48,7 +54,8 @@ export default function ContactPage() {
                     className="text-[#2c6e49] hover:underline"
                   >
                     singh.rajpoot.noopur@gmail.com
-                  </a>                </p>
+                  </a>
+                </p>
                 <p className="text-neutral-600">
                   <strong>Phone:</strong>{" "}
                   <a
@@ -57,10 +64,6 @@ export default function ContactPage() {
                   >
                     +91 9651770378
                   </a>
-                </p>
-                <p className="text-neutral-600 mt-2">
-                  <strong>Designation:</strong>{" "}
-                  <span>Assistant Professor, IANS DDUGU</span>
                 </p>
               </div>
             </div>
