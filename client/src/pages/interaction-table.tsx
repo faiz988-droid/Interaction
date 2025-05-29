@@ -9,15 +9,35 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Eye } from "lucide-react";
-import type { PredictionResult } from "@shared/schema";
+import { Eye, Trash2 } from "lucide-react";
 
-interface StoredPrediction extends PredictionResult {
+interface StoredPrediction {
   id: string;
   timestamp: string;
   metadata?: {
     ip?: string;
     userAgent?: string;
+  };
+  mirnaSequence: string;
+  lncrnaSequence: string;
+  score: number;
+  alignment: string;
+  bindingStart: number;
+  bindingEnd: number;
+  mirnaName?: string;
+  lncrnaName?: string;
+  bindingDetails: {
+    seedMatch: string;
+    complementaryPairs: string;
+    mismatches: number;
+    guWobblePairs: number;
+    bulges: number;
+  };
+  thermodynamics: {
+    freeEnergy: number;
+    stabilityScore: string;
+    accessibility: number;
+    localStructure: string;
   };
 }
 
@@ -33,6 +53,9 @@ function InspectionDialog({ prediction }: { prediction: StoredPrediction }) {
       <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
           <DialogTitle>Prediction Details</DialogTitle>
+          <DialogDescription>
+            Detailed view of prediction results including technical information
+          </DialogDescription>
         </DialogHeader>
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4 text-sm">
@@ -98,6 +121,12 @@ const loadStoredPredictions = (): StoredPrediction[] => {
   }
 };
 
+const deletePrediction = (id: string, predictions: StoredPrediction[], setPredictions: React.Dispatch<React.SetStateAction<StoredPrediction[]>>) => {
+  const updatedPredictions = predictions.filter(pred => pred.id !== id);
+  localStorage.setItem("predictions", JSON.stringify(updatedPredictions));
+  setPredictions(updatedPredictions);
+};
+
 export default function InteractionTablePage() {
   const [predictions, setPredictions] = useState<StoredPrediction[]>([]);
 
@@ -122,7 +151,7 @@ export default function InteractionTablePage() {
                   <TableHead className="w-[200px]">Binding</TableHead>
                   <TableHead className="w-[150px]">Energy</TableHead>
                   <TableHead className="w-[150px]">Date</TableHead>
-                  <TableHead className="w-[50px]"></TableHead>
+                  <TableHead className="w-[100px]">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -182,7 +211,17 @@ export default function InteractionTablePage() {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <InspectionDialog prediction={pred} />
+                        <div className="flex gap-2">
+                          <InspectionDialog prediction={pred} />
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="px-2 text-red-600 hover:text-red-700 hover:bg-red-50"
+                            onClick={() => deletePrediction(pred.id, predictions, setPredictions)}
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))
