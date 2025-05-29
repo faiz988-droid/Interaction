@@ -7,9 +7,6 @@ export default function ContactPage() {
         <h1 className="text-4xl font-sans font-bold text-neutral-900 mb-4">
           Contact Us
         </h1>
-        <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-          Get in touch with our team
-        </p>
       </header>
 
       <Card>
@@ -51,8 +48,7 @@ export default function ContactPage() {
                     className="text-[#2c6e49] hover:underline"
                   >
                     singh.rajpoot.noopur@gmail.com
-                  </a>
-                </p>
+                  </a>                </p>
                 <p className="text-neutral-600">
                   <strong>Phone:</strong>{" "}
                   <a
@@ -61,6 +57,10 @@ export default function ContactPage() {
                   >
                     +91 9651770378
                   </a>
+                </p>
+                <p className="text-neutral-600 mt-2">
+                  <strong>Designation:</strong>{" "}
+                  <span>Assistant Professor, IANS DDUGU</span>
                 </p>
               </div>
             </div>
